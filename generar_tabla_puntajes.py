@@ -31,6 +31,7 @@ def generar_tabla_puntajes(jugadores):
         print(linea)
 
 # Ejemplo de uso
+# Hacer un sort en las posiciones
 jugadores = [
     ("AAA", 15000),
     ("BBB", 12500),
