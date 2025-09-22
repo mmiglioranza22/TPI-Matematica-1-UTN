@@ -4,13 +4,11 @@
 
 # Se muestra por consola un número binario y se solicita al usuario que adivine su equivalente en decimal. El usuario debe ingresar su nombre para la tabla de puntaje.
 
-# Si lo logra, suma puntos y se pasa una nueva adivinanza. Si no lo logra se pasa a una nueva adivinanza.
+# Si lo logra, suma puntos y se pasa una nueva adivinanza. Si no lo logra, se pasa a una nueva adivinanza.
 
 # El juego consiste en lograr la mayor cantidad de aciertos, de un total de 5 turnos. Cada acierto suma 20 puntos.
 
-# Finalizado los 5 turnos, se muestra en consola el puntaje del usuario y se pregunta si quiere jugar nuevamente. 
-# Aquí si el usuario ingresa su mismo nombre, el puntaje anterior sobrescribirá con el nuevo, o bien si ingresa otro nombre se generará un nuevo
-# registro en la tabla de puntaje.
+# Finalizado los 5 turnos, se muestra en consola el puntaje del usuario y un mensaje asociado al puntaje específico obtenido
 
 import time
 import random
@@ -27,10 +25,10 @@ puntaje = 0
 
 print("------- Adivina el número binario -------\n")
 
-jugador = input("Ingrese el nombre del jugador: ")
+jugador = input("Ingrese el nombre del jugador: ").strip()
 
 while jugador.strip() == "":
-	jugador = input("No entendí, por favor ingrese el nombre del jugador: ")
+	jugador = input("No entendí, por favor ingrese el nombre del jugador: ").strip()
 
 # Segunda etapa: Ciclo de juego (5 turnos)
 
@@ -58,20 +56,22 @@ while turno_actual < total_turnos:
 	
 	print("\n")
 
-	# TODO: limpiar/validar strings/inputs vacíos
-	respuesta = int(input("¿Sabés qué número es?: ")) 
+	try:
+		respuesta = int(input("¿Sabés qué número es?: ").strip()) 
 
-	if respuesta == acierto_decimal:
-		print("Exacto!")
-		puntaje += 20
-	else:
-		print(f"Ups! El número {acierto_binario} en decimal es el {acierto_decimal}\n")
+		if respuesta == acierto_decimal:
+			print(f"Exacto! {acierto_binario} equivale a {respuesta} en decimal")
+			puntaje += 20
+		else:
+			print(f"Ups! El número {acierto_binario} en decimal es el {acierto_decimal}\n")
 
-	# Sacar el numero que salió para no repetirlo
-	listado_números.remove(acierto_decimal)
-	
-	# Avanzar el bucle
-	turno_actual += 1
+		# Sacar el numero que salió para no repetirlo
+		listado_números.remove(acierto_decimal)
+		
+		# Avanzar el bucle
+		turno_actual += 1
+	except Exception as e:
+		print("La respuesta indicada no es un número válido. Adivinanza anulada (No sumas puntos)")
 
 print(f"\nSe acabó el juego!")
 print(f"\nTu puntaje final es el siguiente: {puntaje}")
