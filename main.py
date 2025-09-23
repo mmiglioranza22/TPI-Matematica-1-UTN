@@ -2,7 +2,7 @@
 
 # La aplicación simula un juego de adivinanzas de números binarios.
 
-# Se muestra por consola un número binario y se solicita al usuario que adivine su equivalente en decimal. El usuario debe ingresar su nombre para la tabla de puntaje.
+# Se muestra por consola un número binario y se solicita al usuario que adivine su equivalente en decimal. El usuario debe ingresar su nombre.
 
 # Si lo logra, suma puntos y se pasa una nueva adivinanza. Si no lo logra, se pasa a una nueva adivinanza.
 
