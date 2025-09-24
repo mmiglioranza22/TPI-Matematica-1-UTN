@@ -17,7 +17,7 @@ from countdown import countdown
 
 # Carga de variables
 total_turnos = 5
-turno_actual = 1
+turno_actual = 0
 listado_números = list(range(0,101))
 puntaje = 0
 
