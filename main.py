@@ -17,7 +17,7 @@ from countdown import countdown
 
 # Carga de variables
 total_turnos = 5
-turno_actual = 0
+turno_actual = 1
 listado_números = list(range(0,101))
 puntaje = 0
 
@@ -38,7 +38,7 @@ time.sleep(2)
 print("Voy a pensar un número del 1 al 100 EN BINARIO! Y tenés que adivinarlo!")
 time.sleep(3)
 
-while turno_actual < total_turnos:
+while turno_actual <= total_turnos:
 
 	print(f"\nAdivinanza #{turno_actual}: Preparado, listo... YA!")
 	loading_animation(3, "Lo estoy pensando... ")
